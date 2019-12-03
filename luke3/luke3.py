@@ -3,7 +3,7 @@ import io
 import textwrap
 
 
-print("Hell world!")
+print("Knowit Julekalender 2019 - Luke3")
 
 #Antar A4 format for det har jo tegningene på IKEA, ratio 1:1.4142, vi vet antall pixels (chars), 720720, regner oss frem til at
 #dimensjonene  sannsnynligvis er ca. 1009 x 714
@@ -15,7 +15,7 @@ imageWidth =  715 #715 <- Gir oss bokstaver...
 imageHeight = 1008 #1008 
 
 
-f = open("luke3-img2.txt", "r")
+f = open("luke3/luke3-img2.txt", "r")
 flatpakke = f.read()
 f.close
 
@@ -24,7 +24,7 @@ print ("Antall pixler: " + str(imageHeight*imageWidth) + "(" + str(imageWidth) +
 wrapper = textwrap.TextWrapper(width=imageWidth)
 pakkeTekst = wrapper.wrap(flatpakke)
 
-pakkefil = open("luke3-img-pakke.txt","w+")
+pakkefil = open("luke3/luke3-img-pakke.txt","w+")
 pakkefil.writelines(pakkeTekst)
 pakkefil.close
 
@@ -43,5 +43,5 @@ for x in range (imageWidth):
 
 
 img.show()
-img.save("luke3-img-pakke.png")
+img.save("luke3/luke3-img-pakke.png")
 img.close()
