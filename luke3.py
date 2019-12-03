@@ -11,6 +11,9 @@ print("Hell world!")
 imageWidth = 1009
 imageHeight = 714
 
+imageWidth =  715 #715 <- Gir oss bokstaver...
+imageHeight = 1008 #1008 
+
 
 f = open("luke3-img2.txt", "r")
 flatpakke = f.read()
