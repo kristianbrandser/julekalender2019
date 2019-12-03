@@ -5,8 +5,9 @@ import textwrap
 
 print("Hell world!")
 
-#Antar A4 format for det har jo tegningene på IKEA, ratio 1,414, vi vet antall pixels (chars), 720720, regner oss frem til at
-#dimensjonene  sannsnynligvis er 1009 x 714
+#Antar A4 format for det har jo tegningene på IKEA, ratio 1:1.4142, vi vet antall pixels (chars), 720720, regner oss frem til at
+#dimensjonene  sannsnynligvis er ca. 1009 x 714
+#SQRT (720720/1,4142). => Minste lengde er 714. lengste er 714*1,4142
 imageWidth = 1009
 imageHeight = 714
 
