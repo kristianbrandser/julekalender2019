@@ -11,9 +11,12 @@ print("Knowit Julekalender 2019 - Luke3")
 #imageWidth = 1009
 #imageHeight = 714
 
-imageWidth =  715 #715 <- Gir oss bokstaver...
+imageWidth =  715 #715 <- Rett antall pxler og gir oss bokstaver...
 imageHeight = 1008 #1008 
 
+#Fasit; 1287x560
+imageWidth =  1287 
+imageHeight = 560 
 
 f = open("luke3/luke3-img2.txt", "r")
 flatpakke = f.read()
@@ -30,7 +33,7 @@ pakkefil.close
 
 print(len(pakkeTekst))
 print(len(pakkeTekst[0]))
-print(pakkeTekst[0][3]) #Y
+print(pakkeTekst[0][3]) #Test av parsing, skal være Y
 
 img = Image.new(mode = "RGB", size = (imageWidth, imageHeight), color = "black" ) 
 
