@@ -9,23 +9,29 @@ with open('luke4/testcoords.csv', 'r') as f:
 
 skattekart.pop(0) #Remove header row
 skattekart = numpy.array(skattekart,dtype=int) #parse to numpy-array with ints
-kvadratahara = numpy.zeros((3,3),dtype=int)
+kvadratahara = numpy.zeros((3,2),dtype=int) #map (possible with slime column)
 currentpos = numpy.array([0,0],dtype=int)
+#slimetracks - holds info om slimebuildup
+#moves - holds info on path
 
-timetofindtreasure = 0
-totalmoves = 0
+totaltimetofindtreasure = 0
+totalmovestofindtreasure = 0
 
 for i in range(len(skattekart)):
-    while(numpy.array_equiv(currentpos[0],skattekart[i])):
+    #while(numpy.array_equiv(currentpos[0],skattekart[i])):
      #Not at treasuremapstep yet, need to move
-        if (currentpos[0]<i[0]): #go east
+     #kan anteglivis gjøre dette mye enklere med vektor-mattematikk. 
+     #Obs. må sjekke etter slimspor på veien (ved kalkulering av tid ihverfall)
+     #Obs2. må legge fra seg slimspor underveis
+        #hvis x-verdi av currentpos < x-verdi av gjeldende skattekart steg go east
             #Deposit slime
-            kvadratahara.add(currentpos,1)
-            totalmoves += 1
-            currentpos[0] += 1
-
-    #if (currentpos)    
-    print(i)
+            ##kvadratahara.add(currentpos,1)
+            #totalmoves += 1
+            #oppdater tid brukt
+            #Oppdater current pos
+            #currentpos[0] += 1
+        #hvis x-verdi av currentpos 
+    print(skattekart[i])
 
 print(currentpos)  
 print(kvadratahara)
