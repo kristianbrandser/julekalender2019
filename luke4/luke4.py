@@ -17,6 +17,28 @@ currentpos = numpy.array([0,0],dtype=int)
 totaltimetofindtreasure = 0
 totalmovestofindtreasure = 0
 
+# Så lenge vi ikke har funnet skatten
+    #sett neste skattekartsteg
+    #gå til rett x koordinat
+    #oppdater antall steg
+        #absolutt forskjell i x-verdi mellom steg og nåværende posisjon
+    #oppdater tidbrukt på strekke
+        #sjekk om det er slim på veien
+    #oppdater slimspor
+        #økt slik på hver av koordinatene passer med +=1
+
+    #gå til rett y koordinat
+    #oppdater antall steg
+    #oppdater tidbrukt på strekke
+    #oppdater slimspor
+
+    #//oppdater skattekart steg som besøkt    
+    #gå til neste skattekart steg
+
+    #siste skattekart steg ? profit!
+    
+
+
 for i in range(len(skattekart)):
     #while(numpy.array_equiv(currentpos[0],skattekart[i])):
      #Not at treasuremapstep yet, need to move
