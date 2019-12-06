@@ -10,33 +10,41 @@ import numpy
 
 #[[240, 33, 11], [61, 78, 109], [69, 46, 106], [104, 45, 160], [36, 192, 143]]
 
+
 testmushImageArray =numpy.asarray([[240, 33, 11], [61, 78, 109], [69, 46, 106], [104, 45, 160], [36, 192, 143]])
 testwishImageArray = numpy.asarray([[240, 33, 11], [205, 111, 102], [120, 96, 7], [45, 3, 202], [76, 237, 47]])
-#testwishImage = Image.fromarray(testwishImageArray)
-#testwishImage.save("luke6/testwish.png")
-testmushImageArray.bitwise_xor()
+#add 0,0,0 as first pixel in mush-array and shift-left
+#testmushImageArrayShifted = numpy.asarray([[0,0,0], [240, 33, 11], [61, 78, 109], [69, 46, 106], [104, 45, 160]])
+#testmushImageArrayShifted = numpy.insert(testmushImageArray, 0,0,0)
+#testmushImageArrayShifted = testmushImageArrayShifted[:-1].copy()
+testmushImageArrayShifted = numpy.roll(testmushImageArray,1, axis=(0))
+print(testmushImageArrayShifted)
+#test magic
+testXORedImageArray = numpy.bitwise_xor(testmushImageArray, testmushImageArrayShifted)
+if (numpy.array_equal(testwishImageArray, testXORedImageArray)):
+    print("Succcess in reverse XOR numpy test arrays")
 
 
 mushImage = Image.open("luke6/mush.png")
 #mushImage.show()
-mushArray = numpy.array(mushImage)
+mushImageArray = numpy.array(mushImage)
 mushImage.close()
 
-#wishImage = Image.new(mode = "RGB", size = mushImage.size, color = "black" ) 
-wishArray = numpy.array(mushArray)
-numpy.savetxt("luke6/mush.csv", mushArray.flatten(),delimiter=',') #for SSC
-#wishArray.bitwise_xor()
+#For SSC
+#numpy.savetxt("luke6/mush.csv", mushImageArray.flatten(),delimiter=',')
 
-wishImage = Image.fromarray(wishArray)
+#mushImageArrayShifted = numpy.insert(mushImageArray, 0,0,0)
+#mushImageArrayShifted = mushImageArrayShifted[:-1].copy()
+mushImageArrayShifted = numpy.roll(mushImageArray,1, axis=(1))
+
+#do magic
+XORedImageArray = numpy.bitwise_xor(mushImageArray, mushImageArrayShifted)
+
+wishImage = Image.fromarray(XORedImageArray)
 wishImage.save("luke6/wish.png")
 wishImage.close()
-#https://www.mathworks.com/matlabcentral/answers/222730-how-to-encrypt-and-decrypt-rgb-image-using-logical-xor-operation
-#EncryptedImage = bitxor(FirstImage, SecondImage);
 
-#https://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.bitwise_xor.html
-
-#https://pillow.readthedocs.io/en/stable/reference/ImageChops.html#PIL.ImageChops.logical_xor
-
+##PSEUDOCODE
 #Les inn mushedimage og map til numpy
 #Gjør invers XOR (XOR) på numpy med pixlene
 #Lagre unobfuscated image
