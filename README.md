@@ -1,2 +1,2 @@
 # julekalender2019
-Repo for solving julekalender.knowit.no
+Forsøk på løsninger for julekalender.knowit.no
