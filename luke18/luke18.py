@@ -3,8 +3,6 @@ import numpy as np
 import pandas as pd
 import math
 
-#key_value = np.loadtxt("luke18/employees.csv", delimiter=",", dtype=str)
-#mydict = { k:v for k,v in key_value }
 alfabeth = "_ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
 
 SWFirstnames_Male = np.loadtxt("luke18/SWFirstname_Male.txt", dtype=str)
@@ -63,14 +61,7 @@ def GetSWName(firstname, lastname, sex):
     return SWName
 
 employees = pd.read_csv("luke18/employees.csv")
-#print(employees)
 
-#for employee in employees:
-#    print(GetSWName(employee['firstname'], employee['lastname'], employee['sex']))
-
-# https://www.geeksforgeeks.org/different-ways-to-iterate-over-rows-in-pandas-dataframe/
-# iterate through each row and concatenate 
-# 'Name' and 'Percentage' column respectively. 
 employees.insert(3, 'SWName', "", True)
 for i, employee in employees.iterrows():
     employees.at[i,'SWName'] = GetSWName(employee['first_name'], employee['last_name'], employee['gender'])
