@@ -16,9 +16,6 @@ SWLastnames_Part1_Count = len(SWLastnames_Part1)
 SWLastnames_Part2 = np.loadtxt("luke18/SWLastname_Part2.txt", dtype=str)
 SWLastnames_Part2_Count = len(SWLastnames_Part2)
 
-employees = pd.read_csv("luke18/employees.csv")
-print(employees)
-
 def GetSWName(firstname, lastname, sex):
     SWName = "UNDEFINED"
     ## ASCII-verdien for kvar bokstav i fornamnet blir lagt saman. 
@@ -65,9 +62,22 @@ def GetSWName(firstname, lastname, sex):
     #print("Employee: ", firstname, lastname, sex, "SWName: ", SWName)
     return SWName
 
+employees = pd.read_csv("luke18/employees.csv")
+#print(employees)
+
 #for employee in employees:
 #    print(GetSWName(employee['firstname'], employee['lastname'], employee['sex']))
 
+# https://www.geeksforgeeks.org/different-ways-to-iterate-over-rows-in-pandas-dataframe/
+# iterate through each row and concatenate 
+# 'Name' and 'Percentage' column respectively. 
+employees.insert(3, 'SWName', "", True)
+for i, employee in employees.iterrows():
+    employees.at[i,'SWName'] = GetSWName(employee['first_name'], employee['last_name'], employee['gender'])
+
+print(employees)
+#https://stackoverflow.com/questions/48590268/pandas-get-the-most-frequent-values-of-a-column/48590361
+print("Most used name: ", employees['SWName'].value_counts()[employees['SWName'].value_counts() == employees['SWName'].value_counts().max()])
 
 Testemployee = {
     "firstname": "Jan", 
@@ -75,12 +85,3 @@ Testemployee = {
     "sex":"M" }
 
 assert (GetSWName(Testemployee["firstname"], Testemployee["lastname"], Testemployee["sex"]) == "Poe Lightverse")
-
-
-## Jan = 74 + 97 + 110 = 281
-# 281 % 36 = 29. Plass 29 i lista over mannsnamn (nullindeksert) = Poe
-# Johannsen -> Johan, nsen
-# Alfabetverdiane (a = 1, b = 2 osv) av Johan = 10, 15, 8, 1, 14, som summert blir 48. 48 % 24 = 0. Indeks 0 i lista = Light
-# ASCII-verdiane av nsen = 110, 115, 101, 110. Produktet av desse blir 140541500. Ganga med 3 blir det 421624500.
-# 421624500 sortert blir 654422100. 654422100 modulo 26 = 20. Indeks 20 gir verse
-# Jan Johannsen blir dermed Poe Lightverse.
