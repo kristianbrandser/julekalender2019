@@ -23,6 +23,8 @@ for i in range(0,999999):
             print("Perfekt square found: ", rotatedTriangle)
             #nKvadrattall += 1
             nKvadrattall = numpy.append(nKvadrattall, rotatedTriangle)
-  
-print("Antall unike kvadrattall: ", numpy.size(numpy.unique(nKvadrattall)))
+            break
+
+
 print("Antall kvadrattall: ", numpy.size(nKvadrattall))
+print("Kvadrattall: ", nKvadrattall)
