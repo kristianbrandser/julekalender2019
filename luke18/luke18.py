@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import math
 
-alfabeth = "_ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
+alfabeth = "-ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
 
 SWFirstnames_Male = np.loadtxt("luke18/SWFirstname_Male.txt", dtype=str)
 SWFirstnames_Male_Count = len(SWFirstnames_Male)
@@ -60,7 +60,7 @@ def GetSWName(firstname, lastname, sex):
     #print("Employee: ", firstname, lastname, sex, "SWName: ", SWName)
     return SWName
 
-employees = pd.read_csv("luke18/employees.csv")
+employees = pd.read_csv("luke18/quality-employees.csv")
 
 employees.insert(3, 'SWName', "", True)
 for i, employee in employees.iterrows():
