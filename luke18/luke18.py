@@ -74,5 +74,7 @@ Testemployee = {
     "firstname": "Jan", 
     "lastname": "Johannsen", 
     "sex":"M" }
+    
+#BP Hva er ditt SW navn?
 
 assert (GetSWName(Testemployee["firstname"], Testemployee["lastname"], Testemployee["sex"]) == "Poe Lightverse")
