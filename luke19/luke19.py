@@ -16,7 +16,8 @@ sumPalindrom = 0
 for i in range(1,123454321):
     if (isHiddenPalindrome(i)):
         sumPalindrom += i
-        #print("Found hidden palindrom: ", i)
+        if (i % 100000 == 0): #Skriv bare ut hver 100.000 tall
+            print("Found hidden palindrom: ", i)
 
 print("Sum of hidden palindromes is: ", sumPalindrom)
 print("Run time: ", time.time() - starttime)
