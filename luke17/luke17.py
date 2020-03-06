@@ -28,3 +28,4 @@ for i in range(0,999999):
 
 print("Antall kvadrattall: ", numpy.size(nKvadrattall))
 print("Kvadrattall: ", nKvadrattall)
+print("Fiskekaker!")
